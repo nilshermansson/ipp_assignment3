@@ -32,4 +32,8 @@ test: matrixmult matrixmult2 matrixmult3
 		./matrixmult 1000 >> result1.txt ; \
 		./matrixmult2 1000 >> result2.txt ; \
 		./matrixmult3 1000 >> result3.txt ; \
+		echo "done with $$num" ; \
 	done
+
+
+
