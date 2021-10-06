@@ -1,0 +1,12 @@
+Execution time(s): 1.87336
+Threads used: 32
+Execution time(s): 2.25583
+Threads used: 16
+Execution time(s): 3.06795
+Threads used: 8
+Execution time(s): 5.56829
+Threads used: 4
+Execution time(s): 9.26528
+Threads used: 2
+Execution time(s): 16.4054
+Threads used: 1
