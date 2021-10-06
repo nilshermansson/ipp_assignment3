@@ -130,6 +130,8 @@ int main(int argc, char *argv[])
         }
         std::cout << std::endl;
     }
+    std::cout << "Max: " << n << std::endl;
+    std::cout << "Number of threads: " << nr_of_threads << std::endl;
     std::cout << "Execution time(s): " << elapsed.count() * 1e-9 << std::endl;
 
     return 0;
