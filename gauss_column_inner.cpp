@@ -12,7 +12,7 @@
 const int MIN_ELEMENT_VALUE = 1;
 const int MAX_ELEMENT_VALUE = 1000;
 const int RANDOM_SEED = 42;
-
+const int MATRIX_SIZE = 42000;
 
 void deallocate_matrix(int **m, const int dim)
 {
@@ -108,30 +108,30 @@ int main(int argc, char *argv[]) {
     bool should_print = false;
     srand(RANDOM_SEED);
     
-    if (argc != 2 && argc != 3) 
-    {
-		usage(argv[0]);
-		exit(-1);
-    }
-    else if(argc == 3 && strcmp(argv[2], "-p") == 0)
-    {
-        should_print = true;
-        dim = atoi(argv[1]); 
-    }
-    else 
-    {
-        dim = atoi(argv[1]); 
-    }
+    //if (argc != 1 && argc != 1) 
+    //{
+	//	usage(argv[0]);
+	//	exit(-1);
+    //}
+    //else if(argc == 3 && strcmp(argv[2], "-p") == 0)
+    //{
+    //    should_print = true;
+    //    dim = atoi(argv[1]); 
+    //}
+    //else 
+    //{
+    //    dim = atoi(argv[1]); 
+    //}
+
+    dim = MATRIX_SIZE;
 
     int **A; // A matrix
     int *b; //right-hand side
     int *x; //solution vector
-    int *x_ref;
 
     A = init_matrix(dim); // initialize random square matrix
     b = init_vector(dim); // initialize random right-hand side vector
     x = new int[dim]; // solution vector
-    x_ref = new int[dim];
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
@@ -140,19 +140,6 @@ int main(int argc, char *argv[]) {
     auto end_time = std::chrono::high_resolution_clock().now();
     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time);
     std::cout << "Execution time(s): " << elapsed.count() * 1e-9 << std::endl;
-
-    //for reference
-    omp_set_num_threads(1);
-    gauss_elim(A, b, x_ref, dim);
-
-    for(int i = 0; i < dim; i++)
-    {
-        if(x_ref[i] != x[i])
-        {
-            std::cout << "THERE WAS AN ERROR" << std::endl;
-            exit(-1);
-        }
-    }
 
     if (should_print)
     {

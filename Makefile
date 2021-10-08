@@ -24,7 +24,7 @@ gauss_row:
 	g++ -std=c++11 -wall -g -fopenmp matrixmult3.cpp -o gauss_row
 
 gauss_column_inner:
-	g++ -std=c++11 -wall -g -fopenmp gauss_column.cpp -o gauss_column_inner
+	g++ -std=c++11 -wall -g -fopenmp gauss_column_inner.cpp -o gauss_column_inner
 
 clean:
 	$(RM) Game_Of_Life sieve matrixmult matrixmult2 matrixmult3
